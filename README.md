@@ -4,7 +4,7 @@ Code and data accompanying:
 
 > **A dynamical‑systems analysis of the *toc1‑1* circadian transcriptome identifies
 > transcripts coupled to the TOC1‑independent cytosolic calcium rhythm in *Arabidopsis*.**
-> [Authors]; [Journal]; [Year]. [DOI]
+> Hearn, Robertson, Briggs and Webb; [Journal]; [Year]. [DOI]
 
 This repository reproduces every figure, table and supplementary item in the paper
 from the raw input data.
@@ -114,9 +114,8 @@ step). The other two are near‑instant.
 
 ## License
 
-[Specify a license — e.g. MIT for the code and CC‑BY for the data. The bundled
-`nugap` package is released under the MIT License; see its `LICENSE` file.]
+MIT
 
 ## Contact
 
-[Corresponding author and contact details.]
+Tim Hearn tjh70@cam.ac.uk
