@@ -1,0 +1,16 @@
+Supplementary Figure S2. Network of transcripts whose dynamic coupling to
+cytosolic free calcium ([Ca2+]cyt) is preserved in toc1-1. Cytosolic free
+calcium is shown as the central hub, and the spokes are the 14 transcripts whose
+first-order gene-to-[Ca2+]cyt transfer functions are preserved between wild type
+and toc1-1 in both modelling directions (forward, transcript -> [Ca2+]cyt; and
+reverse, [Ca2+]cyt -> transcript; nu-gap < 0.15 with R^2 > 0.5 in both genotypes
+in both directions; Supplementary Table S2). Edge thickness is proportional to
+the strength of the preserved coupling (thicker = lower mean nu-gap). Node colour
+indicates the effect of toc1-1 on each transcript's own circadian period:
+period-invariant (|delta-Period| < 0.6 h; teal), period shortened (orange), or
+not confidently rhythmic in toc1-1 and therefore unclassified (grey). Transcripts
+with a directly calcium- or metal-ion-related annotation (PLP2, the EF-hand
+protein AT5G54130, and ATFP6) are ringed in red. Most transcripts that retain
+their coupling to [Ca2+]cyt - including SIG5 - nonetheless shorten their own
+period in toc1-1, showing that a preserved relationship to [Ca2+]cyt does not
+require the transcript's period to be unchanged.
