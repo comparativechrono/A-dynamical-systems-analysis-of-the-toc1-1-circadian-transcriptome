@@ -24,67 +24,6 @@ systems that look very different on paper but behave similarly (and vice versa).
 Reference: G. Vinnicombe, *Frequency domain uncertainty and the graph
 topology*, IEEE TAC 38 (1993) 1371–1383.
 
-## The idea for your application
-
-You have time-course data for thousands of variables under two conditions. The
-analysis is a **pairwise dynamic network**: within each condition, every
-variable is treated as a candidate input for every other variable, and a
-first-order input->output model is fitted for each ordered pair (i -> j). Then
-the nu-gap compares condition A's model with condition B's model for each edge.
-Edges with a large nu-gap are interactions whose dynamics changed.
-
-```python
-from nugap import compare_network
-
-# data_A, data_B: dict  variable name -> array (n_replicates x n_timepoints)
-edges = compare_network(
-    data_A, data_B, t,
-    order=1,          # model poles: 1 = first-order, 2 = second-order
-    n_zeros=None,     # numerator zeros (default 0 -> all-pole model)
-    n=256,            # contour resolution; 256 is plenty for low order
-    min_r2=0.5,       # only test pairs with a real relationship
-    gate="either",    # how to combine the two conditions' fit quality
-    global_null=True, # pool within-condition nu-gaps -> p_global, q_global
-)
-# one row per edge (source, target, nu_gap, within_median, separation,
-# max_r2, q_global), sorted by significance. Flag changes with q_global < 0.1.
-```
-
-**`order` / `n_zeros`** choose the per-edge model. `order=1, n_zeros=0`
-(default) is the first-order K/(τs+1); `order=2` is a two-pole system, with
-`n_zeros=1` if you want a zero (the discrete analogue of MATLAB
-`tfest(data, 2, 1)`). Higher order needs more time points per trajectory.
-
-**`gate`** controls the fit-quality gate across the two conditions:
-`"either"` keeps an edge if the relationship is well fit in at least one
-condition (so relationships that appear or disappear are tested); `"both"`
-requires a good fit in both conditions; `"mean"` uses the mean R² over all
-replicate fits.
-
-### Two things that matter a lot here
-
-1. **Gate on fit quality (`min_r2`).** Most variable pairs have *no* real
-   first-order relationship; those fits are meaningless and produce large,
-   high-variance nu-gaps that would swamp the null. `compare_network` only
-   tests an edge if a first-order relationship actually holds (R^2 above
-   `min_r2`) in at least one condition. This is essential — without it nothing
-   is detectable.
-
-2. **Confounding.** Pairwise first-order identification assumes the i->j
-   relationship is approximately self-contained. In a densely coupled system
-   each output depends on many inputs, so a single pairwise model is
-   misspecified and the within-condition noise floor rises. This is a property
-   of the method (the same one you ran in MATLAB), not the metric. Sparse or
-   modular systems behave well; dense ones need care.
-
-### Scale
-
-N variables -> N*(N-1) ordered edges (a million at N=1000). Each fit is a
-2-parameter least squares; the cost is the metric, kept cheap by the small
-`n`. The per-edge work is independent, so wrap the edge loop in
-`joblib.Parallel` / `multiprocessing` for real datasets, and/or pass
-`include_pairs=` to test only a prescreened candidate set.
-
 ## Install
 
 ```bash
