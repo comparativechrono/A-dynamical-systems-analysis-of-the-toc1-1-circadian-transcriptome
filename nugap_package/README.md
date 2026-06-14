@@ -156,7 +156,7 @@ FDR < 0.1.
 large (say > ~0.1), your fits are too unstable — lower the order, average
 replicates, or get more points before trusting the between-condition results.
 
-### Matching your MATLAB `tfest` workflow
+### Matching the MATLAB `tfest` workflow
 
 `tfest` needs an input and a response, and returns a *continuous* transfer
 function; you then ran `gapmetric` on those. Here, fit with `method="arx"`
@@ -173,9 +173,8 @@ discovery you can stay discrete.
   undamped oscillators) are an edge case in the winding condition; fitted
   models from real data essentially never hit this.
 * The fitting layer is intentionally basic. For best results, match the model
-  class and order you used in MATLAB.
+  class and order used in MATLAB.
 
 ## License
 
-MIT — see the [LICENSE](LICENSE) file. (Fill in the copyright holder in that
-file before publishing.)
+MIT — see the [LICENSE](LICENSE) file.
