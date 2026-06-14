@@ -1,0 +1,11 @@
+
+=== CONCORDANCE: COSOPT vs cosine ===
+rhythmic WT: COSOPT=3457 cosine=4217 both=2789 | agreement=91% Jaccard=0.57 kappa=0.67
+rhythmic toc1: COSOPT=1538 cosine=2381 both=1256 | agreement=94% Jaccard=0.47 kappa=0.61
+period WT (n=2789 rhythmic in both methods): Pearson r=0.93 Spearman=0.94 median |COSOPT-cosine|=0.1h
+period toc1 (n=1256 rhythmic in both methods): Pearson r=0.96 Spearman=0.96 median |COSOPT-cosine|=0.1h
+median period shift (rhythmic-both, both methods): COSOPT=-2.1h cosine=-2.0h
+
+non-shortening set: COSOPT=192 cosine=21 overlap=13 (Jaccard=0.07)
+  ACA8 (AT5G57110): COSOPT period 23.3->22.7h (d=-0.6), class='invariant'
+  PLP2 (AT2G26560): COSOPT period 23.3->22.8h (d=-0.6), class='invariant'
