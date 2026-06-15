@@ -1,6 +1,0 @@
-Methodological sensitivity: broadband+winding (main) vs band-limited, no-winding (DyDE-style)
-  forward transcript->Ca  (n=274 reliable): Pearson r(broadband, band) = 0.96
-  reverse  Ca->transcript (n=199 reliable): Pearson r(broadband, band) = 0.96
-  band-limited forward: median between = 0.16, within = 0.12, between>within Wilcoxon p = 2.0e-19
-  robust-in-both candidates: main (broadband) = 14, band-limited = 29, overlap = 14  (all main candidates retained: True)
-  DC gain of the 14 main candidates (forward models): min = 0.77, median = 0.94; number at/below DyDE floor (0.1) = 0
